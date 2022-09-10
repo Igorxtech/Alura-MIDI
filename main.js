@@ -1,18 +1,25 @@
-
-
+function tocaSom(idElementoAudio) {
+    document.querySelector(idElementoAudio).play();
+}
 
 const listaDeTeclas = document.querySelectorAll('.tecla');
 
-const listaDeSons = document.querySelectorAll('audio');
 
-function tocaSom() {
-    listaDeTeclas.forEach(element => {
-        var i = 0;
-        if(element.onclick){
-            listaDeSons[i].play;
-        }
-        i++;
-    });
+
+let contador = 0;
+
+while(contador < listaDeTeclas.length) {
+
+    const tecla = listaDeTeclas[contador];
+    const instrumento = tecla.classList[1];
+    //Template string
+    const idAudio = `#som_${instrumento}`;
+
+    tecla.onclick = function () {
+        tocaSom(idAudio);
+    };
+
+    contador++;
+    console.log(contador);
+
 }
-
-onload = tocaSom();
